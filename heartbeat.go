@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"github.com/urfave/cli"
+	"os"
+	"time"
 )
 
 func main() {
@@ -19,8 +20,6 @@ func main() {
 		},
 	}
 
-	//cfg := &Config{ Verbose: false}
-
 	app.Commands = []cli.Command{
 		{
 			Name:    "version",
@@ -31,7 +30,32 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name:   "run",
+			Usage:  "Run the program",
+			Action: RunPeriodically,
+		},
 	}
 
 	app.Run(os.Args)
+}
+
+func RunPeriodically(c *cli.Context) error {
+	var period time.Duration = 1 * time.Second
+
+	fmt.Printf("Running %s periodically\n", c.App.Name)
+	for {
+		go func() {
+			PrintHeartbeat()
+		}()
+
+		time.Sleep(period)
+	}
+
+	return nil
+}
+
+func PrintHeartbeat() {
+	now := time.Now().UTC()
+	fmt.Printf("%v Every heartbeat bears your name\n", now.Format(time.RFC3339))
 }
