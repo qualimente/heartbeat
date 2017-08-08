@@ -8,9 +8,9 @@ jobs:
       deploy:
         provider: releases
         file:
-        - releases/manifesto-darwin-amd64.tar.gz
-        - releases/manifesto-windows-amd64.tar.gz
-        - releases/manifesto-linux-amd64.tar.gz
+        - releases/heartbeat-darwin-amd64.tar.gz
+        - releases/heartbeat-windows-amd64.tar.gz
+        - releases/heartbeat-linux-amd64.tar.gz
         skip_cleanup: true
         on:
           repo: qualimente/heartbeat
