@@ -21,3 +21,5 @@ heartbeat
 # Ignore vendor packages
 vendor/
 
+# Ignore release (transient) dir
+releases/
