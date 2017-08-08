@@ -1,0 +1,17 @@
+language: go
+sudo: false
+go:
+  - 1.7
+jobs:
+  include:
+    - script: make all
+      deploy:
+        provider: releases
+        file:
+        - releases/manifesto-darwin-amd64.tar.gz
+        - releases/manifesto-windows-amd64.tar.gz
+        - releases/manifesto-linux-amd64.tar.gz
+        skip_cleanup: true
+        on:
+          repo: qualimente/heartbeat
+          tags: true
