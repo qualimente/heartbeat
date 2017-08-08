@@ -2,6 +2,8 @@
 
 Heartbeat is a simple program to produce a periodic heartbeat message.
 
+[![Build Status](https://travis-ci.org/qualimente/heartbeat.svg?branch=master)](https://travis-ci.org/qualimente/heartbeat)
+
 # Developing #
 
 1. Clean up build env `make clean`
