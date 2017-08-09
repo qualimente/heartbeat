@@ -1,15 +1,20 @@
 package main
 
 import (
-	"fmt"
+	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 	"time"
 )
 
 func RunPeriodically(c *cli.Context) error {
+	log.SetFormatter(&log.TextFormatter{DisableColors: true})
+
+	log.WithFields(log.Fields{
+		"appName": c.App.Name,
+	}).Info("Running periodically")
+
 	var period time.Duration = 1 * time.Second
 
-	fmt.Printf("Running %s periodically\n", c.App.Name)
 	for {
 		go func() {
 			PrintHeartbeat()
@@ -22,6 +27,5 @@ func RunPeriodically(c *cli.Context) error {
 }
 
 func PrintHeartbeat() {
-	now := time.Now().UTC()
-	fmt.Printf("%v Every heartbeat bears your name\n", now.Format(time.RFC3339))
+	log.Info("Every heartbeat bears your name")
 }
