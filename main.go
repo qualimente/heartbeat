@@ -33,6 +33,12 @@ func main() {
 			Name:   "run",
 			Usage:  "Run the program",
 			Action: RunPeriodically,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "format",
+					Usage: "Specify the output format: text, json",
+				},
+			},
 		},
 	}
 
