@@ -8,7 +8,7 @@ import (
 
 func RunPeriodically(c *cli.Context) error {
 
-	log.SetFormatter(_makeFormatter(c))
+	log.SetFormatter(_makeFormatter(c.String("format")))
 
 	log.WithFields(log.Fields{
 		"appName": c.App.Name,
@@ -31,8 +31,8 @@ func PrintHeartbeat() {
 	log.Info("Every heartbeat bears your name")
 }
 
-func _makeFormatter(c *cli.Context) log.Formatter {
-	switch c.String("format") {
+func _makeFormatter(format string) log.Formatter {
+	switch format {
 	case "text":
 		return &log.TextFormatter{DisableColors: true}
 	case "json":
