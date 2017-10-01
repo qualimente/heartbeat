@@ -14,7 +14,7 @@ func RunPeriodically(c *cli.Context) error {
 		"appName": c.App.Name,
 	}).Info("Running periodically")
 
-	var period time.Duration = 1 * time.Second
+	period := time.Duration(c.Int("period")) * time.Second
 
 	for {
 		go func() {
