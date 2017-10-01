@@ -28,7 +28,9 @@ func RunPeriodically(c *cli.Context) error {
 }
 
 func PrintHeartbeat() {
-	log.Info("Every heartbeat bears your name")
+	log.WithFields(log.Fields{
+		"type": "heartbeat",
+	}).Info("Every heartbeat bears your name")
 }
 
 func _makeFormatter(format string) log.Formatter {
