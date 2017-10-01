@@ -37,6 +37,10 @@ func main() {
 				cli.StringFlag{
 					Name:  "format",
 					Usage: "Specify the output format: text, json",
+				}, cli.IntFlag{
+					Name:  "period",
+					Usage: "Specify the period between heartbeat messages as an integer in seconds, default: 1 second",
+					Value: 1,
 				},
 			},
 		},
