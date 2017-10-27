@@ -24,7 +24,6 @@ func RunPeriodically(c *cli.Context) error {
 		time.Sleep(period)
 	}
 
-	return nil
 }
 
 func PrintHeartbeat() {

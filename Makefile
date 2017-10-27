@@ -27,7 +27,7 @@ ifeq ($(OS),Windows_NT)
 	suffix := .exe
 endif
 
-all: build test
+all: fmt vet build test
 
 $(GOPATH)/bin/glide$(suffix):
 	go get github.com/Masterminds/glide
@@ -53,6 +53,12 @@ bin/darwin/amd64:
 	mkdir -p bin/darwin/amd64
 
 build: darwin linux
+
+fmt:
+	go fmt
+
+vet:
+	go vet
 
 test:
 	go test -v $(shell go list ./... | grep -v /vendor/)
