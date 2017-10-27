@@ -39,7 +39,7 @@ USAGE:
 
 OPTIONS:
    --format value  Specify the output format: text, json
-   --period value  Specify the period between heartbeat messages as an integer in seconds, default: 1 second (default: 1)
+   --period value  Specify the period between heartbeat messages. Valid time units are 'ns', 'us' (or 'µs'), 'ms', 's', 'm', 'h' (default: 1s)
 ```
 
 # Homage #
