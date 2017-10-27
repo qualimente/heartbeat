@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/urfave/cli"
-	"os"
 )
 
 func main() {
@@ -46,5 +45,5 @@ func main() {
 		},
 	}
 
-	app.Run(os.Args)
+	app.RunAndExitOnError()
 }
