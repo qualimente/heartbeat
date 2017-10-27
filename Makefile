@@ -74,3 +74,5 @@ linux: vendor releases bin/linux/amd64
 clean:
 	rm -rf releases bin
 
+image: linux
+	docker build -t qualimente/heartbeat .
