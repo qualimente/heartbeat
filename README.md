@@ -11,9 +11,10 @@ Heartbeat is a simple program to produce a periodic heartbeat message.
 3. Run the software `bin/darwin/amd64/heartbeat run`
 ```
 Running heartbeat periodically
-2017-08-08T04:26:44Z Every heartbeat bears your name
-2017-08-08T04:26:45Z Every heartbeat bears your name
-2017-08-08T04:26:46Z Every heartbeat bears your name
+{"appName":"heartbeat","level":"info","msg":"Running periodically","time":"2017-10-26T20:02:14-07:00"}
+{"level":"info","msg":"Every heartbeat bears your name","time":"2017-10-26T20:02:14-07:00","type":"heartbeat"}
+{"level":"info","msg":"Every heartbeat bears your name","time":"2017-10-26T20:02:15-07:00","type":"heartbeat"}
+{"level":"info","msg":"Every heartbeat bears your name","time":"2017-10-26T20:02:16-07:00","type":"heartbeat"}
 ```
 
 # Building Releases #
@@ -22,6 +23,24 @@ Running heartbeat periodically
 2. Build the software `make all`
 
 Releases will be created in the `releases` directory
+
+# Running #
+
+`heartbeat` prints heartbeat messages to standard out with one message printed in json format every second, by default.
+
+options can be printed with `--help`, `heartbeat run`'s are most interesting permitting control over format (text, json) and period:
+
+```
+NAME:
+   heartbeat run - Run the program
+
+USAGE:
+   heartbeat run [command options] [arguments...]
+
+OPTIONS:
+   --format value  Specify the output format: text, json
+   --period value  Specify the period between heartbeat messages as an integer in seconds, default: 1 second (default: 1)
+```
 
 # Homage #
 
