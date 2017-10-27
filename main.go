@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/urfave/cli"
+	"time"
 )
 
 func main() {
@@ -36,10 +37,10 @@ func main() {
 				cli.StringFlag{
 					Name:  "format",
 					Usage: "Specify the output format: text, json",
-				}, cli.IntFlag{
+				}, cli.DurationFlag{
 					Name:  "period",
-					Usage: "Specify the period between heartbeat messages as an integer in seconds, default: 1 second",
-					Value: 1,
+					Usage: "Specify the period between heartbeat messages. Valid time units are 'ns', 'us' (or 'µs'), 'ms', 's', 'm', 'h'",
+					Value: 1 * time.Second,
 				},
 			},
 		},
